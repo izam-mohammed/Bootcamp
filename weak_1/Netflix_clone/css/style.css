@@ -1,12 +1,12 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Netflix Sans", "Helvertica Neue","Segoe",Roboto, Ubuntu,sans-serif;
     box-sizing: border-box;
 }
 
 body{
-    background: black;
+    background: rgb(64, 64, 64);
     color: white;
 }
 
@@ -57,7 +57,6 @@ nav button {
 }
 
 .header-content{
-    font-family: "Netflix Sans", "Helvertica Neue","Segoe",Roboto, Ubuntu,sans-serif;
     position: absolute;
     left: 50%;
     top: 55%;
@@ -112,4 +111,36 @@ nav button {
     color: white;
     padding-left: 10px;
 }
+
+.second-page{
+    margin-top: 5px;
+    background-color: black;
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.second-next{
+    display: flex;
+    align-items: center;
+    width:75%;
+}
+
+ h2{
+    font-size: 68px;
+    font-weight: 950;
+    word-spacing: 0;
+
+}
+
+ p{
+    font-size: 32px;
+    padding-top: 3vh;
+    font-weight: 400;
+    padding-bottom: 3vh;
+}
+
+
 
