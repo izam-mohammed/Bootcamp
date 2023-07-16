@@ -191,10 +191,11 @@ input[type="radio"] {
 }
 
 .accordian .content {
-  text-align: left;
+  text-align: center;
   padding: 5px 30px 5px 30px;
-  height: 0;
   overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s, padding 0.5s;
 }
 
 .footer {
@@ -236,4 +237,12 @@ input[type="radio"] {
     padding: 10px 25px 10px 25px;
     border: #717171 solid 1px;
     border-radius: 4px;
+  }
+
+
+  .accordian input[type="radio"]:checked + label+ .content{
+    max-height: 900px;
+    padding: 30px 20px;
+    word-break: keep-all;
+    word-spacing: .5px;
   }
