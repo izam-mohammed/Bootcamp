@@ -50,6 +50,6 @@ Thank you for considering contributing!
 
 ## License
 
-The content of this repository is licensed under the [MIT License](). Feel free to use, modify, and distribute the code as long as you retain the original license headers.
+The content of this repository is licensed. Feel free to use, modify, and distribute the code as long as you retain the original license headers.
 
 
