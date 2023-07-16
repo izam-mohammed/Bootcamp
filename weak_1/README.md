@@ -1,11 +1,11 @@
 # Zomato Clone and Netflix Clone Repository
-This repository contains two folders: Zomato_clone and Netflix_clone, each of which contains the cloned frontend pages of Facebook and Netflix, respectively. Additionally, there is a testing folder that might include any testing-related files or scripts.
+This repository contains two folders: Zomato_clone and Netflix_clone, each of which contains the cloned frontend pages of Zomato and Netflix, respectively. Additionally, there is a testing folder that might include any testing-related files or scripts.
 
 ## Folder Structure
 The repository has the following folder structure:
 
 - Zomato_clone/
-  - [Facebook frontend files]
+  - [Zomato frontend files]
 - Netflix_clone/
   - [Netflix frontend files]
 - testing/
