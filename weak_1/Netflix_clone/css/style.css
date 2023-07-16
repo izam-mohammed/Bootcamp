@@ -18,8 +18,7 @@ body {
       rgba(0, 0, 0, 0.8),
       rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.8)
-    ),
-    url(/weak_1/Netflix_clone/img/baground.jpg);
+    ),url('https://static.standard.co.uk/2022/11/16/10/netflix-s.jpg?width=1200&auto=webp&quality=75');
   background-size: cover;
   background-position: center;
   padding: 5px 5px;
