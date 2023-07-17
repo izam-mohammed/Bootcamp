@@ -1,6 +1,6 @@
 # Netflix Clone
 ## Deployment
-This website is hosted in (Netflix - Izam)[https://netflix-izam.netlify.app/]. Just check it out.
+This website is hosted in [Netflix - Izam](https://izam-netflix-clone-project-latest.netlify.app/). Just check it out.
 
 ## About
 This repository contains a clone of the Netflix front-end using HTML and CSS. The purpose of this project is to showcase my skills in web development and demonstrate my ability to recreate a popular website's user interface.
