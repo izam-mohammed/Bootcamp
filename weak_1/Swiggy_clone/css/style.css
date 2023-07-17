@@ -1,0 +1,263 @@
+ * {
+    font-family: ProximaNova, arial, "Helvetica Neue", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+ }
+
+ body {
+    background-color: white;
+    color: #3b3b3b;
+ }
+
+ .header {
+    width: 100%;
+    display: flex;
+    height: 100px;
+    padding-top: 15px;
+    justify-content: center;
+ }
+
+ .slider {
+    height: 340px;
+    width: 100%;
+    background-color: #171a29;
+    display: flex;
+    justify-content: center;
+ }
+
+ .slider img {
+    margin: 30px 20px;
+    transition: .5s;
+ }
+
+ .slider img:hover {
+    margin: 25px 15px;
+ }
+
+ .content {
+    width: 100%;
+    height: 2000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ .filter {
+    height: 75px;
+    width: 1300px;
+    padding: 20px 20px;
+    color: #171a29;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #ebeaea;
+ }
+
+ .footer {
+    height: 500px;
+    width: 100%;
+    background-color: #171a29;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+ }
+
+ .filter div {
+    display: inline;
+ }
+
+ .filter div:first-child {
+    padding-top: 15px;
+ }
+
+ .Restaurants {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+ }
+
+ .inner {
+    margin-top: 10px;
+    width: 1300px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+ }
+
+ .inner img {
+    height: 60px;
+ }
+
+ .inner label {
+    letter-spacing: .6px;
+ }
+
+ .underline {
+    padding-left: 40px;
+    padding-right: 40px;
+    font-weight: 950;
+    text-decoration: underline 2px;
+    text-underline-offset: 1em;
+ }
+
+ .inner label:hover {
+    color: rgb(247, 164, 56);
+ }
+
+ .inner .place {
+    font-weight: 400;
+    font-size: 15px;
+    text-decoration: none;
+ }
+
+ #arrow {
+    padding-left: 10px;
+    margin-top: 5px;
+    height: 8px;
+ }
+
+ .filter-elem {
+    padding-top: 25px;
+
+ }
+
+ .filter-elem label {
+    margin: 10px 20px;
+    font-size: 17px;
+    color: #3b3b3b;
+ }
+
+ .filter-elem label:hover {
+    color: black;
+ }
+
+ .boxpad {
+    height: 370px;
+    width: 1300px;
+    display: block;
+    margin: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .box {
+    height: 330px;
+    width: 300px;
+    padding: 20px 20px;
+    display: flex;
+    flex-flow: column;
+    align-items: top;
+    border-radius: 6px;
+    border: none;
+ }
+
+ .box img {
+    height: 160px;
+ }
+
+ .pricebox {
+    display: flex;
+    height: 20px;
+    justify-content: space-between;
+    color: rgb(80, 80, 80);
+    font-size: 12px;
+
+ }
+
+ .star {
+    padding: 2px 7px;
+    background-color: rgb(72, 196, 121);
+    color: #ffffff;
+    text-underline-offset: 1em;
+ }
+
+ .main-text {
+    margin: 12px 0 5px 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: black;
+    letter-spacing: .2px;
+ }
+
+ .sub-text {
+    margin-bottom: 15px;
+    color: rgb(80, 80, 80);
+    font-size: 12px;
+ }
+
+ .box:hover {
+    box-shadow: 0px 0px 10px 1px rgb(187, 186, 186);
+ }
+
+ .footer-div {
+    width: 300px;
+    height: 450px;
+    margin: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+ }
+
+ .head-icons {
+    width: 64%;
+    height: 40px;
+    display: flex;
+    justify-content: end;
+ }
+
+ .head-icons div img {
+    margin-right: 5px;
+    height: 16px;
+ }
+
+ .head-label {
+    font-style: none;
+    font-weight: 700;
+    font-size: 14px;
+ }
+
+ .head-icons div {
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+ }
+
+ .normal-footer {
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    margin-top: 15px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+ }
+
+ .footer a {
+    margin-top: 12px;
+    text-decoration: none;
+ }
+
+ .special-footer {
+    font-size: 18px;
+    font-weight: 800;
+    margin-left: 26px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    color: rgb(156, 156, 156);
+
+ }
+
+ .footer a:hover {
+    font-weight: 1000;
+ }
+
+ .footer-div img {
+    width: 200px;
+    margin-top: 20px;
+    transition: .5s;
+ }
+
+ .footer-div img:hover {
+    width: 210px;
+ }
