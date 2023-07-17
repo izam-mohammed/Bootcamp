@@ -240,7 +240,8 @@ input[type="radio"] {
   }
 
 
-  .accordian input[type="radio"]:checked + label+ .content{
+  .accordian input[type="radio"]:checked
+   + label+ .content{
     max-height: 900px;
     padding: 30px 20px;
     word-break: keep-all;
