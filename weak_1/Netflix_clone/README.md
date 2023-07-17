@@ -1,4 +1,3 @@
-# Netflix Clone
 ## Deployment
 This website is hosted in [Netflix - Izam](https://izam-netflix-clone-project-latest.netlify.app/). Just check it out.
 
