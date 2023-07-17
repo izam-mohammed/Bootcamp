@@ -1,4 +1,9 @@
-# Brocamp works
+# Brocamp works 🔥
+
+<a class="header-badge" target="_blank" href="https://www.linkedin.com/in/izammohammed"><img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social"></a>
+<a href="https://izam-mohammed.github.io/" alt="izam"><img src="https://img.shields.io/badge/Build by - Izam Mohammed-blue" /></a>
+<img src="https://img.shields.io/badge/PRs - Welcome-green" />
+<img src="https://img.shields.io/badge/Build -In progress-yellow" />
 
 Welcome to Brocamp Works, a collection of my projects and works! This GitHub repository serves as a central hub to track my progress and showcase various projects related to Python, web development, and data science. Feel free to explore and get inspired!
 
