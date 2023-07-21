@@ -10,7 +10,6 @@ Welcome to Brocamp Works, a collection of my projects and works! This GitHub rep
 ## Table of Contents
 
 - [About](#about)
-- [Projects](#projects)
 - [Workflow](#workflow)
 - [Contributing](#contributing)
 - [License](#license)
@@ -18,13 +17,6 @@ Welcome to Brocamp Works, a collection of my projects and works! This GitHub rep
 ## About
 
 In this repository, you'll find a range of projects and works that I have developed over the past 7 months. The primary focus of these projects is Python, web development, and data science. Each project is contained in its own directory and comes with its own `README.md` file, providing detailed information about the project, its purpose, and how to run it.
-
-## Projects
-
-Here's a list of projects included in this repository:
-
-1. Weak 1 : I made a clone for Netflix and Amazon.
-2. weak 2 : work in progress ...
 
 Please navigate to each project's directory for more information about the specific projects.
 
