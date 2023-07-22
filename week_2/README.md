@@ -6,11 +6,11 @@ This repository contains two projects created during Week 2:
 
 ### 1. Personal Website
 
-The personal website showcases my portfolio, projects, and provides a brief introduction about myself. It is built using HTML, CSS, and JavaScript, and designed to be responsive for a seamless user experience.
+The personal website showcases my portfolio, and projects, and provides a brief introduction about myself. It is built using HTML, CSS, and JavaScript, and designed to be responsive for a seamless user experience.
 
-### 2. Responsive YouTube Website
+### 2. Responsive Cash of Clans Website
 
-The responsive YouTube website mimics the interface of YouTube and features a homepage with recommended videos and search functionality. It adapts to various screen sizes to ensure optimal viewing.
+The responsive Cash of Clans website mimics the interface of Cash of Clans . It adapts to various screen sizes to ensure optimal viewing.
 
 Both projects are developed using HTML5, CSS3, and JavaScript. Feel free to explore the code and use them as a reference for your own projects.
 
