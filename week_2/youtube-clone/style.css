@@ -1,0 +1,35 @@
+* {
+    font-family: Tahoma, sans-serif;
+  }
+
+.side-item:hover{
+  cursor: pointer;
+  background-color: rgb(198, 198, 198);
+  border-radius: 12px;
+}
+
+svg{
+  height: 30px; 
+  flex-shrink:0
+}
+
+@media (max-width: 690px){
+  #micIcon{
+    display: none;
+  }
+}
+
+@media (max-width: 1200px){
+  #micIcon{
+    display: flex;
+  }
+}
+
+.bottom-bar{
+  border-top: 2px rgb(208, 207, 207) solid;
+}
+
+#firstbutton{
+  border: none;
+  background-color: transparent;
+}
