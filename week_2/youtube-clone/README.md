@@ -4,6 +4,10 @@
 
 This repository contains a YouTube clone website that replicates the user interface of the popular video-sharing platform, YouTube. The website is built using HTML, CSS, Bootstrap, and JavaScript, and it offers a responsive design that adapts to different screen sizes, making it accessible and user-friendly on various devices.
 
+## Website URL
+
+Link to the live website - [Youtube Clone]([https://.netlify.app/](https://youtube-clone-izam.netlify.app/))
+
 ## Dependencies
 
 The website is built using the following technologies:
