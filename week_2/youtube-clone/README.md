@@ -6,7 +6,7 @@ This repository contains a YouTube clone website that replicates the user interf
 
 ## Website URL
 
-Link to the live website - [Youtube Clone]([https://.netlify.app/](https://youtube-clone-izam.netlify.app/))
+Link to the live website - [Youtube Clone]([https://.netlify.app/](https://youtube-clone-izam.netlify.app/)
 
 ## Dependencies
 
