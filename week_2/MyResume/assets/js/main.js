@@ -269,30 +269,41 @@
 
 })()
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxBLoNn-oOr7_iybf4ooNteWF3rctNGexEwPhW2v8WJ24l7GW_kOJVxbb6J0HBZNRwN/exec'
-const form = document.forms['submit-to-google-sheet']
-  
-form.addEventListener('submit', e => {
-  clickfn()
-  e.preventDefault()
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    .then(
-      document.getElementById("sent").innerHTML = "Message sent successful",
-    document.getElementById("sent").style.background = "green",
-      document.getElementById("sent").style.display = "block")
-    .catch(error => console.error('Error!', error.message))
-  })
-function clickfn(){
-  document.getElementById("sent").style.display = "block"
-  }
+$("#submit-form").submit((e)=>{
+	let name = document.forms.submitfrm.name.value;
+	let email = document.forms.submitfrm.email.value;
+	let subject = document.forms.submitfrm.subject.value;
+	let message = document.forms.submitfrm.message.value;
 
-function validateform(){
-  let x = document.forms["submit-to-google-sheet"]["name"].value;
-  if (x == "" || x.length < 2){
-    document.getElementById("sent").innerHTML = "Name must be larger";
-    document.getElementById("sent").style.background = "red";
-    document.getElementById("sent").style.display = "block";
-    x.focus()
-    return false
-  }
-}
+	if(name==""){
+		alert("Name Must be filed out");
+		return false;
+	}else if($.isNumeric(name)){
+		alert("The Name can Only conatain Alphabets");
+		return false;
+	} else if(email==""){
+		alert("Email must be filled out");
+		return false;
+	}else if(message==""){
+		alert("message must be filled out");
+		return false;
+	}else{
+	e.preventDefault()
+	$.ajax({
+		url:"https://script.google.com/macros/s/AKfycbzXg_Y7U6wmAXk5ONdIF4p53KMFQJ2a4kRtgGdAPSxzLx07iXi5AJg7iE30i0EnC2rj/exec",
+		data:$("#submit-form").serialize(),
+		method:"post",
+		success:function (response){
+			alert("Form submitted successfully")
+			window.location.reload()
+			//window.location.href="https://google.com"
+		},
+		error:function (err){
+			alert("Something Error")
+
+		}
+	})
+	}
+
+	
+})
