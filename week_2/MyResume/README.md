@@ -4,7 +4,7 @@ This repository contains the code for my personal website built using HTML, CSS,
 
 ## Website URL
 
-Link to the live website - [Izam Mohammed](https://personal-web-izam.netlify.app/)
+Link to the live website - [Izam Mohammed](https://profile-izam.netlify.app/)
 
 ## Features
 
