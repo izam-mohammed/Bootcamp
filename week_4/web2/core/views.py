@@ -3,18 +3,19 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.views.decorators.cache import never_cache
+from django.contrib.auth.hashers import make_password, check_password
 
 # Create your views here.
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        user = authenticate(username=username, password=password)
+        user = authenticate(request ,username=username, password=password)
         if user is not None:
             request.session['username'] = username
             return redirect(index)
         else:
-            messages.add_message(request, messages.WARNING, "invalid credentials")
+            messages.add_message(request, messages.WARNING, "Invalid Credentials")
     return render(request, 'login.html')
 
 @never_cache
@@ -45,6 +46,7 @@ def signup(request):
         elif User.objects.filter(email=email):
             messages.add_message(request, messages.WARNING, 'email is taken')
         else:
+            password = make_password(password, salt=None, hasher='pbkdf2_sha256')
             user = User(username=username, email=email, password=password)
             user.save()
             request.session['username'] = username
