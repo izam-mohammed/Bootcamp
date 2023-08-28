@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://github.com/izam-mohammed/izam-mohammed.github.io/blob/main/img/logo.png?raw=true" type="image/webp" />
+    <title>Login</title>
+</head>
+<body>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+      <form action="" method="post" style="height: 550px;">
+        {% csrf_token %}
+        <h3>Login</h3>
+      
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" id="username" name="username" required>
+      
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" name="password" required>
+
+        {% if messages %} {% for message in messages %}
+        <label style="color: red">{{ message }}</label>
+       {% endfor %} {% endif %}
+
+        <button>Log In</button>
+        <a href="/signup">
+          <label>New User? Sign Up</label>
+        </a>
+
+        <!--
+        <div class="social">
+          <div class="go"><i class="fab fa-google"></i> Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+        </div>
+        -->
+      </form>
+</body>
+</html>
