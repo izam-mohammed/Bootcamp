@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://github.com/izam-mohammed/izam-mohammed.github.io/blob/main/img/logo.png?raw=true" type="image/webp" />
+    <title>Signup</title>
+</head>
+<body>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+      <form action="" method="post" style="height: 750px;">
+        {% csrf_token %}
+        <h3>Sign Up</h3>
+        
+         <label for="username">Email</label>
+        <input type="email" placeholder="Email" id="email" name="email" required>
+        
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" id="username" name="username" required>
+      
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" name="password"required>
+        
+        <label for="password">Confirm Password</label>
+        <input type="password" placeholder="Password" id="password2" name="password2" required>
+
+        {% if messages %} {% for message in messages %}
+         <label style="color: red">{{ message }}</label>
+        {% endfor %} {% endif %}
+        
+        <button>Sign Up</button>
+        <a href="/login">
+          <label>Already have an account?</label>
+        </a>
+      </form>
+</body>
+</html>
