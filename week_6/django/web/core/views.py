@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.views.decorators.cache import never_cache
 from django.contrib.auth.hashers import make_password
 from django.contrib import messages
+from random import choice
 
 # Create your views here.
 
@@ -47,12 +48,14 @@ def signup_user(request):
             messages.add_message(request,messages.WARNING,"password not matching")
     return render(request, 'signup.html')
 
+COLORS = ['rgb(203, 253, 173)','rgb(246, 190, 100)','rgb(174, 180, 243)', 'rgb(253, 173, 238)','rgb(175, 246, 255)','rgb(222, 189, 247)']
+
 @never_cache
 def index(request):
     if request.user.is_authenticated:
         if request.user.is_superuser:
             return redirect('/useradmin')
-        return render(request, 'home.html', context={'user': request.user.username.title()})
+        return render(request, 'home.html', context={'user': request.user.username.title(), 'bg':choice(COLORS)})
     return redirect(login_user)
 
 def user_logout(request):
