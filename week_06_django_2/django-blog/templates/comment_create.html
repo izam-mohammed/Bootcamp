@@ -1,0 +1,43 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<section class="site-section">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-6 offset-md-3">
+                <h1>Add Comment Form</h1>
+            </div>
+        </div>
+        <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 offset-lg-2 main-content">
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="title">Content</label>
+                            {{ form.content }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="submit" value="Share Comment" class="btn btn-primary rounded">
+                        </div>
+                    </div>
+
+                </form>
+                <!-- TODO: Post Oluşturma, Giriş yapan kullanıcının kendi post'larını düzenlemesi, silmesi -->
+            </div>
+            <script>
+                $('input, select').addClass('form-control');
+                $('textarea').attr('cols', '100').addClass('form-control');
+                $('input[type="submit"]').removeClass('form-control');
+            </script>
+
+            <!-- END main-content -->
+
+
+            {% endblock %}

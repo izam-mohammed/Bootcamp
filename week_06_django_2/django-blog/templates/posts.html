@@ -1,0 +1,97 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<section class="site-section py-sm pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="mb-4">{{ title }}</h2>
+            </div>
+        </div>
+        <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 main-content">
+                <div class="row">
+
+
+
+                    <style>
+                        @media screen and (max-width: 767px) {
+                            .imgyek {
+                                height: 250px !important;
+                            }
+                        }
+                    </style>
+
+                    {% if post_list %}
+                    {% for post in post_list %}
+                    <div class="col-md-6">
+                        <a href="{% url 'posts:postDetail' post.category.slug post.id post.slug %}"
+                            class="blog-entry element-animate" data-animate-effect="fadeIn">
+                            <img class="imgyek" style="height: 210px; width: 100%" src="{{ post.image.url }}"
+                                alt="Image placeholder">
+                            <div class="blog-content-body">
+                                <div class="post-meta">
+                                    <span class="author"><img src="{{ post.author.userdetail.image.url }}"
+                                            alt="Colorlib"> {{ post.author.username | title }} &bullet; </span>
+                                    <span>{{ post.created | date }} &bullet;</span>
+                                    <span><span class="fa fa-eye"></span> {{ post.getHitCount }}</span>
+                                </div>
+                                <h2>{{ post.title | title | truncatechars:30}}</h2>
+                                <p class="mb-0">{{ post.content|safe|truncatechars:125|linebreaks }}</p>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="col-md-12">
+                        <div class="alert alert-primary" role="alert">
+                            The article to be listed was not found!
+                        </div>
+                    </div>
+                    {% endif %}
+
+
+
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+                        <nav aria-label="Page navigation" class="text-center">
+                            <ul class="pagination">
+                                <span class="step-links">
+                                    {% if post_list.has_previous %}
+                                    <a class="font-weight-bold" href="?page=1">&laquo;First</a>
+                                    <a href="?page={{ post_list.previous_page_number }}">Previous</a>
+                                    {% endif %}
+
+                                    <span class="current">
+                                        Page <span class="font-weight-bold">{{ post_list.number }}</span> of {{
+                                        post_list.paginator.num_pages }}.
+                                    </span>
+
+                                    {% if post_list.has_next %}
+                                    <a href="?page={{ post_list.next_page_number }}">Next</a>
+                                    <a class="font-weight-bold"
+                                        href="?page={{ post_list.paginator.num_pages }}">Last&raquo;</a>
+                                    {% endif %}
+                                </span>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+            <!-- END main-content -->
+
+
+            {% endblock %}
+        </div>
+    </div>
+</section>
