@@ -1,3 +1,6 @@
 [submodule "week_06_django_2/Notes"]
 	path = week_06_django_2/Notes
 	url = https://github.com/izam-mohammed/Notes.git
+[submodule "week_21_DL_intro/Deep-Learning-Practices"]
+	path = week_21_DL_intro/Deep-Learning-Practices
+	url = https://github.com/izam-mohammed/Deep-Learning-Practices.git
