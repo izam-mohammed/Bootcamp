@@ -1,0 +1,60 @@
+{% if messages %}
+<div style="z-index: 9999 !important;" aria-live="polite" aria-atomic="true" class="position-relative">
+    <div class="toast-container position-absolute top-0 end-0 p-3">
+
+        {% for message in messages %}
+        <!-- MessageBox Start -->
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header border-{{ message.tags }}">
+                <strong class="me-auto text-{{ message.tags }}">{% if 'danger' in message.tags %}
+                    Error!
+                    {% elif 'warning' in message.tags %}
+                    Warning!
+                    {% elif 'success' in message.tags %}
+                    Success!
+                    {% elif 'info' in message.tags %}
+                    Info!
+                    {% endif %} </strong>
+                <small class="text-muted">just now</small>
+            </div>
+            <div class="toast-body">
+                {{ message }}
+            </div>
+        </div>
+        <!-- MessageBox End -->
+        {% endfor %}
+
+    </div>
+</div>
+{% endif %}
+
+{% if form.errors %}
+<div style="z-index: 9999 !important;" aria-live="polite" aria-atomic="true" class="position-relative">
+    <div class="toast-container position-absolute top-0 end-0 p-3">
+
+        {% for key, value in form.errors.items %}
+        <!-- MessageBox Start -->
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header border-danger">
+                <strong class="me-auto text-danger">Error!</strong>
+                <small class="text-muted">just now</small>
+            </div>
+            <div class="toast-body">
+                {{ value }}
+            </div>
+        </div>
+        <!-- MessageBox End -->
+        {% endfor %}
+
+    </div>
+</div>
+{% endif %}
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $('.toast').toast('show');
+    });
+</script>

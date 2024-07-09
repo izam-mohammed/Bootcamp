@@ -1,0 +1,122 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<section class="site-section py-sm pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="mb-4">Posts By {% if author.get_full_name %}
+                    {{ author.get_full_name }}
+                    {% else %}
+                    {{ author.username }}
+                    {% endif %} </h2>
+            </div>
+        </div>
+        <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 main-content">
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <div class="sidebar-box shadow shadow-sm element-animate">
+                            <div class="bio text-center">
+                                <img src="{{ author.userdetail.image.url }}" alt="{{ author.username }} Image"
+                                    class="img-fluid">
+                                <div class="bio-body">
+                                    <h2>
+                                        {% if author.get_full_name %}
+                                        {{ author.get_full_name }}
+                                        {% else %}
+                                        {{ author.username | title }}
+                                        {% endif %}{% if author.userdetail.title %} - <span
+                                            style="font-weight: lighter; font-size: 17px" class="font-italic">{{
+                                            author.userdetail.title }}</span> {% endif %}
+                                    </h2>
+                                    <p class="mb-3">{% if author.userdetail.description %}
+                                        {{ author.userdetail.description }}
+                                        {% endif %} </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <style>
+                        @media screen and (max-width: 767px) {
+                            .imgyek {
+                                height: 250px !important;
+                            }
+                        }
+                    </style>
+
+                    {% if object_list %}
+                    {% for post in object_list %}
+                    <div class="col-md-6">
+                        <a href="{% url 'posts:postDetail' post.category.slug post.id post.slug %}"
+                            class="blog-entry element-animate" data-animate-effect="fadeIn">
+                            <img class="imgyek" style="height: 210px; width: 100%" src="{{ post.image.url }}"
+                                alt="Image placeholder">
+                            <div class="blog-content-body">
+                                <div class="post-meta">
+                                    <span class="author"><img src="{{ post.author.userdetail.image.url }}"
+                                            alt="Colorlib"> {{ post.author.username | title }} &bullet; </span>
+                                    <span>{{ post.created | date }} &bullet;</span>
+                                    <span><span class="fa fa-eye"></span> {{ post.getHitCount }}</span>
+                                </div>
+                                <h2>{{ post.title | title | truncatechars:30}}</h2>
+                                <p class="mb-0">{{ post.content|safe|truncatechars:125|linebreaks }}</p>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="col-md-12">
+                        <div class="alert alert-primary" role="alert">
+                            The article to be listed was not found!
+                        </div>
+                    </div>
+                    {% endif %}
+
+
+
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+                        <nav aria-label="Page navigation" class="text-center">
+                            <ul class="pagination">
+                                <span class="step-links">
+                                    {% if page_obj.has_previous %}
+                                    <a class="font-weight-bold" href="?page=1">&laquo;First</a>
+                                    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                                    {% endif %}
+
+                                    <span class="current">
+                                        Page <span class="font-weight-bold">{{ page_obj.number }}</span> of {{
+                                        page_obj.paginator.num_pages }}.
+                                    </span>
+
+                                    {% if page_obj.has_next %}
+                                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                                    <a class="font-weight-bold"
+                                        href="?page={{ page_obj.paginator.num_pages }}">Last&raquo;</a>
+                                    {% endif %}
+                                </span>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+            <!-- END main-content -->
+
+
+            {% endblock %}
+        </div>
+    </div>
+</section>

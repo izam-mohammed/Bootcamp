@@ -1,0 +1,60 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<section class="site-section">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-6 offset-md-3">
+                <h1>Post Update Form</h1>
+            </div>
+        </div>
+        <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 offset-lg-2 main-content">
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="first_name">Category</label>
+                            {{ form.category }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="last_name">Tags</label>
+                            {{ form.tags }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="username">Title</label>
+                            {{ form.title }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="email">Image</label>
+                            {{ form.image }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="title">Content</label>
+                            {{ form.content }}
+                            {{ form.media }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="submit" value="Update Post" class="btn btn-primary rounded">
+                        </div>
+                    </div>
+
+                </form>
+                <!-- TODO: Post Oluşturma, Giriş yapan kullanıcının kendi post'larını düzenlemesi, silmesi -->
+            </div>
+            <script>
+                $('input, select').addClass('form-control');
+                $('textarea').attr('cols', '100').addClass('form-control');
+                $('input[type="submit"]').removeClass('form-control');
+            </script>
+
+            <!-- END main-content -->
+
+
+            {% endblock %}

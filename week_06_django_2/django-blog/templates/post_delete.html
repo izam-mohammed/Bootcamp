@@ -1,0 +1,41 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<section class="site-section">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-6 offset-md-3">
+                <h1>Post Delete Confirmation</h1>
+            </div>
+        </div>
+        <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 offset-lg-2 main-content">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="card border-warning mb-3">
+                        <div class="card-header ">Warning!</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Post Delete Process</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                        </div>
+                        <div class="card-footer text-end">
+                            <button onclick="{% url 'pages:index' %}" class="btn btn-secondary btn-sm">Close</button>
+                            <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <script>
+                $('input, select').addClass('form-control');
+                $('textarea').attr('cols', '100').addClass('form-control');
+                $('input[type="submit"]').removeClass('form-control');
+            </script>
+
+            <!-- END main-content -->
+
+
+            {% endblock %}

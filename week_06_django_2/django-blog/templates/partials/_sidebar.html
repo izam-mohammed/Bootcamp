@@ -1,0 +1,63 @@
+{% load static %}
+
+
+
+<div class="col-md-12 col-lg-4 sidebar">
+
+    {% if popularposts %}
+    <div class="sidebar-box">
+        <h3 class="heading">Popular Posts</h3>
+        <div class="post-entry-sidebar">
+            <ul>
+
+                {% for popularpost in popularposts %}
+                <li>
+                    <a href="{% url 'posts:postDetail' popularpost.category.slug popularpost.id popularpost.slug %}">
+                        <img style="height: 55px" src="{{ popularpost.image.url }}" alt="popularpost img" class="mr-4">
+                        <div class="text">
+                            <h4>{{ popularpost.title | title }}</h4>
+                            <div class="post-meta">
+                                <span>{{ popularpost.created | date }} &bullet;</span>
+                                <span><span class="fa fa-eye"></span> {{ popularpost.getHitCount }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+
+
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+    <!-- END sidebar-box -->
+
+    {% if categories %}
+    <div class="sidebar-box">
+        <h3 class="heading">Categories</h3>
+        <ul class="categories">
+            {% for category in categories %}
+            <li><a href="{% url 'posts:posts_by_category' category.slug %}">{{ category }} <span>({{
+                        category.post_set.count }})</span></a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    <!-- END sidebar-box -->
+
+    {% if tags %}
+    <div class="sidebar-box">
+        <h3 class="heading">Tags</h3>
+        <ul class="tags">
+            {% for tag in tags %}
+            <li><a href="{% url 'posts:posts_by_tag' tag.slug %}">{{ tag }}</a></li>
+            {% endfor %}
+
+        </ul>
+    </div>
+    {% endif %}
+</div>
+<!-- END sidebar -->
+</div>
+</div>
+</section>
