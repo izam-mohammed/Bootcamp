@@ -1,0 +1,162 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<section class="site-section py-lg">
+    <div class="container">
+
+        <div class="row blog-entries element-animate">
+
+            <div class="col-md-12 col-lg-8 main-content">
+                <img src="{{ post.image.url }}" alt="Image" class="img-fluid mb-5 w-100">
+                <div class="post-meta">
+                    <span class="author"><img src="{{ post.author.userdetail.image.url }}" alt="Colorlib" class="mr-2">
+                        {{ post.author.username | title }} &bullet; </span>
+                    <span>{{ post.created | date }} &bullet;</span>
+                    <span class="catyek">{{ post.category.name }} &bullet;</span>
+                    <span><span class="fa fa-eye"></span> {{ post.getHitCount }}</span>
+                </div>
+                <h1 class="mb-1">{{ post.title | title }}</h1>
+                <a class="category mb-3" href="{% url 'posts:posts_by_category' post.category.slug %}">{{
+                    post.category.name }}</a>
+
+                <style>
+                    @media screen and (max-width: 524px) {
+                        .catyek {
+                            display: none !important;
+                        }
+                    }
+                </style>
+
+                <div class="post-content-body mb-5">
+                    <p>{{ post.content | safe | linebreaks }}</p>
+                </div>
+                <br>
+                <div class="row mt-3 ">
+                    <div class="col-md-12">
+                        <div class="sidebar-box shadow shadow-sm">
+                            <div class="bio text-center">
+                                <img style="height: 130px; width: 130px!important; max-width: 130px"
+                                    src="{{ post.author.userdetail.image.url }}" class="img-fluid">
+                                <div class="bio-body">
+                                    <h2>
+                                        {% if post.author.get_full_name %}
+                                        {{ post.author.get_full_name }}
+                                        {% else %}
+                                        {{ post.author.username | title }}
+                                        {% endif %}{% if post.author.userdetail.title %} - <span
+                                            style="font-weight: lighter; font-size: 17px" class="font-italic">{{
+                                            post.author.userdetail.title }}</span> {% endif %}
+                                    </h2>
+                                    <p class="mb-4">{% if post.author.userdetail.description %}{{
+                                        post.author.userdetail.description }}{% endif %}</p>
+                                    <!-- <p><a href="#" class="btn btn-outline-primary btn-sm rounded">Read my bio</a></p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="pt-5">
+                    <p>Category: <a href="{% url 'posts:posts_by_category' post.category.slug %}">{{ post.category.name
+                            }}</a> {% if post.tags.all %}Tags: {% for tag in post.tags.all %} <a
+                            href="{% url 'posts:posts_by_tag' tag.slug %}">#{{ tag.slug }}</a>{% if not forloop.last
+                        %},{% endif %}{% endfor %}{% endif %}</p>
+                </div>
+
+
+                <div class="pt-5">
+                    <h3 class="mb-5">{{ comments.count }} Comments</h3>
+                    <ul class="comment-list">
+
+                        {% if comments %}
+                        {% for comment in comments %}
+                        <li class="comment">
+                            <div class="vcard">
+                                <img src="{{ comment.author.userdetail.image.url }}" alt="Image placeholder">
+                            </div>
+                            <div class="comment-body">
+                                <h3>{% if comment.author.get_full_name %}
+                                    {{ comment.author.get_full_name }}
+                                    {% else %}
+                                    {{ comment.author.username }}
+                                    {% endif %} </h3>
+                                <div class="meta">{{ post.created }}</div>
+                                <p>{{ comment.content }}</p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        {% else %}
+                        <div class="alert alert-primary" role="alert">
+                            This article has not been commented yet, write the first comment!
+                        </div>
+                        {% endif %}
+
+                    </ul>
+                    <!-- END comment-list -->
+
+
+
+
+                    {% if request.user.is_authenticated %}
+                    <div class="comment-form-wrap pt-5 text-center">
+                        {# <h3 class="mb-5">Leave a comment</h3>#}
+                        <!-- Post Comment Link YEK -->
+                        <div class="row mb-3">
+                            <div class="col-md-12 text-center text-capitalize" style="height:40px">
+                                <a onmouseover='$(this).addClass("btn btn-sm btn-primary")'
+                                    onmouseout='$(this).removeClass("btn btn-sm btn-primary")'
+                                    href="{% url 'posts:addComment' post.id %}"> Leave a comment <i
+                                        class="fa fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- END main-content -->
+            {% endblock %}
+
+
+
+            {% block related_posts %}
+            <section class="py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="mb-3 ">Related Post</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+
+
+                        {% for relatedpost in relatedposts %}
+                        <div class="col-md-6 col-lg-4">
+                            <a href="#" class="a-block sm d-flex align-items-center height-md"
+                                style="background-image: url({{ relatedpost.image.url }}); ">
+                                <div class="text">
+                                    <div class="post-meta">
+                                        <span class="category">{{ relatedpost.category.name }}</span>
+                                        <span class="mr-2">{{ relatedpost.created | date }}</span> &bullet;
+                                        <span class="ml-2"><span class="fa fa-eye"></span> {{ relatedpost.getHitCount
+                                            }}</span>
+                                    </div>
+                                    <h3>{{ relatedpost.title }}</h3>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+
+
+
+                    </div>
+                </div>
+
+
+            </section>
+            <!-- END section -->
+            {% endblock %}

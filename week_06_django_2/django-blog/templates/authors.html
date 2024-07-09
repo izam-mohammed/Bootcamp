@@ -1,0 +1,103 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<section class="site-section py-sm pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="mb-4">All Authors</h2>
+            </div>
+        </div>
+        <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 main-content">
+                <div class="row pt-5">
+
+
+
+
+                    {% if author_list %}
+                    {% for author in author_list %}
+                    <div class="col-md-6">
+                        <div class="sidebar-box shadow shadow-sm element-animate">
+                            <div class="bio text-center">
+                                <img src="{{ author.userdetail.image.url }}" alt="{{ author.username }} Image"
+                                    class="img-fluid">
+                                <div class="bio-body">
+                                    <h2>
+                                        {% if author.get_full_name %}
+                                        {{ author.get_full_name | truncatechars:15 }}
+                                        {% else %}
+                                        {{ author.username | title }}
+                                        {% endif %}{% if author.userdetail.title %} - <span
+                                            style="font-weight: lighter; font-size: 17px" class="font-italic">{{
+                                            author.userdetail.title }}</span> {% endif %}
+                                    </h2>
+                                    <p class="mb-3">{% if author.userdetail.description %}
+                                        {{ author.userdetail.description|truncatechars:65 }}
+                                        {% endif %} </p>
+                                    <p>
+                                    <div class="col-md-12 text-center text-capitalize" style="height:40px">
+                                        <a onmouseover='$(this).addClass("btn btn-sm btn-primary")'
+                                            onmouseout='$(this).removeClass("btn btn-sm btn-primary")'
+                                            href="{% url 'user:authorDetail' author.pk %}"> Read My Bio <i
+                                                class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="col-md-12 ">
+                        <div class="alert alert-primary" role="alert">
+                            The author to be listed was not found!
+                        </div>
+                    </div>
+                    {% endif %}
+
+
+
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+                        <nav aria-label="Page navigation" class="text-center">
+                            <ul class="pagination">
+                                <span class="step-links">
+                                    {% if page_obj.has_previous %}
+                                    <a class="font-weight-bold" href="?page=1">&laquo;First</a>
+                                    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                                    {% endif %}
+
+                                    <span class="current">
+                                        Page <span class="font-weight-bold">{{ page_obj.number }}</span> of {{
+                                        page_obj.paginator.num_pages }}.
+                                    </span>
+
+                                    {% if page_obj.has_next %}
+                                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                                    <a class="font-weight-bold"
+                                        href="?page={{ page_obj.paginator.num_pages }}">Last&raquo;</a>
+                                    {% endif %}
+                                </span>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+            <!-- END main-content -->
+
+
+            {% endblock %}
+        </div>
+    </div>
+</section>
