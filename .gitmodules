@@ -1,0 +1,3 @@
+[submodule "week_06_django_2/Notes"]
+	path = week_06_django_2/Notes
+	url = https://github.com/izam-mohammed/Notes.git
