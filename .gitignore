@@ -106,7 +106,6 @@ Desktop.ini
 *.pdb
 
 # Editor directories and files
-.vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
