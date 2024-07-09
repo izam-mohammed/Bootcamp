@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "web"
+version = "0.1.0"
+description = ""
+authors = ["Izam Mohammed <izamdeveloper1@gmai.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^5.0.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

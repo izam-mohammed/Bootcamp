@@ -1,0 +1,71 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<section class="site-section">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-6 offset-md-3">
+                <h1>Update Profile Form</h1>
+            </div>
+        </div>
+        <div class="row blog-entries">
+            <div class="col-md-12 col-lg-8 offset-lg-2 main-content">
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="first_name">First Name</label>
+                            {{ user_form.first_name }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="last_name">Last Name</label>
+                            {{ user_form.last_name }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="username">Username</label>
+                            {{ user_form.username }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="email">Email</label>
+                            {{ user_form.email }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="title">Title</label>
+                            {{ profile_form.title }}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="description">Description</label>
+                            {{ profile_form.description }}
+                        </div>
+                        <div class="col-md-12 form-group mt-4">
+                            <div class="sidebar-box">
+                                <div class="bio text-center">
+                                    <img style="top: 20px" src="{{ request.user.userdetail.image.url }}"
+                                        alt="Image Placeholder" class="img-fluid">
+                                    <div class="bio-body">
+                                        <h2>Current Image</h2>
+                                        <div class="col-md-12 form-group">
+                                            {{ profile_form.image }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="submit" value="Update Profile" class="btn btn-primary rounded">
+                        </div>
+                    </div>
+                </form>
+                <!-- TODO: Post Oluşturma, Giriş yapan kullanıcının kendi post'larını düzenlemesi, silmesi -->
+            </div>
+
+            <!-- END main-content -->
+
+
+            {% endblock %}
