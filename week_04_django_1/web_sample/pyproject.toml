@@ -1,15 +1,12 @@
-[tool.poetry]
+[project]
 name = "web-sample"
 version = "0.1.0"
-description = ""
-authors = ["Izam Mohammed <izamdeveloper1@gmai.com>"]
+description = "week 4 django exercise"
 readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "django>=5.2.16,<6.0.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-django = "^5.0.6"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.uv]
+package = false
